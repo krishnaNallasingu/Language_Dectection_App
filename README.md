@@ -1,9 +1,10 @@
 # Language_Dectection_App
+
 Deploying :
 
 ## On Render
 
-https://language-detection-app.onrender.com
+https://language-dectection-app.onrender.com
 
 ## On Railway
 
