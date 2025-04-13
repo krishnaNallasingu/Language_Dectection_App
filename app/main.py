@@ -20,6 +20,13 @@ def home():
     return {"health_check": "OK", "model_version": model_version, "Is it Working": "Yes :)"}
 
 
+
+@app.get("/ping")
+def ping():
+    return {"status": "ok",
+            "Ping": "Keeping Alive"}
+
+
 @app.post("/predict", response_model=PredictionOut)
 def predict(payload: TextIn):
     language = predict_pipeline(payload.text)
