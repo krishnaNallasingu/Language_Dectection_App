@@ -1,7 +1,12 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
-COPY ./requirements.txt /app/requirements.txt
+WORKDIR /app
 
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+COPY requirements.txt .
 
-COPY ./app /app/app
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+COPY ./app ./app
+
+# Reduce Gunicorn workers to avoid OOM
+ENV MAX_WORKERS=1
